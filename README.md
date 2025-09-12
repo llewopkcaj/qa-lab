@@ -13,8 +13,6 @@ It currently contains completed work from **Week 1 and Week 2**.
 - `daily_dashboard.py` — combined project with variables, lists, dicts.  
 - `poetry_generator.py` — ASCII poetry with random choice.  
 
-📄 [WEEK1.md](WEEK1.md)
-
 ---
 
 ## Week 2 — Loops, Functions, Exceptions
@@ -27,8 +25,6 @@ It currently contains completed work from **Week 1 and Week 2**.
 - `safe_divide.py` — division with validation & errors.  
 - `file_reader.py` — safe file handling.  
 - `cli_calculator.py` — interactive calculator with exceptions + docstrings.  
-
-📄 [WEEK2.md](WEEK2.md)
 
 ---
 
