@@ -1,0 +1,5 @@
+{   "name"   :   "Alice"  ,   
+ "age" :   31 ,
+ "skills" : [ "python" ,  "testing" ,   "automation" ]   ,
+    "details"   :   {   "city"   :   "Chicago"  ,   "email"   :   "alice@example.com"  }
+}

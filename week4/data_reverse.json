@@ -1,0 +1,32 @@
+[
+    {
+        "age": "29",
+        "country": "USA",
+        "email": "alice@example.com",
+        "name": "Alice Johnson"
+    },
+    {
+        "age": "41",
+        "country": "Canada",
+        "email": "bob.smith@gmail.com",
+        "name": "Bob Smith"
+    },
+    {
+        "age": "35",
+        "country": "Mexico",
+        "email": "carla.r@outlook.com",
+        "name": "Carla Reyes"
+    },
+    {
+        "age": "22",
+        "country": "South Korea",
+        "email": "d.kim@yahoo.com",
+        "name": "David Kim"
+    },
+    {
+        "age": "30",
+        "country": "China",
+        "email": "ella.zhang@gmail.com",
+        "name": "Ella Zhang"
+    }
+]

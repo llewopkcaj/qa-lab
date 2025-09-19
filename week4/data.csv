@@ -1,0 +1,5 @@
+name,email,age,country
+Alice,alice@example.com,28,n/a
+Bob,bob@example.com,n/a,n/a
+Charlie,charlie@example.com,35,USA
+Diana,n/a,22,Canada
