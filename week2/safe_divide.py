@@ -8,11 +8,4 @@ def safe_divide(a, b):
     except (ValueError, TypeError, NameError):
         raise ValueError("Error: Invalid input. Please enter numbers only.")
 
-print(safe_divide(10, 2))  # Should print 5.0
-
-try:
-    print(safe_divide(11, "f"))
-except ValueError as e:
-    print(e)
-
 

@@ -2,19 +2,20 @@ import json
 
 profile = {"Name": "Bobby", "Age": 82, "Skills": ["cool", "smart", "sneaky"]}
 
-with open("profile.json", "w") as file:
-    json.dump(profile, file, indent=4)
+def first_file(path):
 
-with open("profile.json", "r") as file:
-    x = json.load(file)
+    with open(path, "w") as file:
+        json.dump(profile, file, indent=4)
 
-        #print(x) would still print the file
-print(f"Name: {x['Name']}")
-print(f"Age: {x['Age']}")
-print(f"Skills: {', '.join(x['Skills'])}") #for .join the pattern is always: "SEPARATOR".join(LIST_OF_STRINGS)
+    with open(path, "r") as file:
+        x = json.load(file)
+        return x
+    
+def second_file_edit(path):
+    with open(path, "r") as file:
+        x = json.load(file)
+        x["Skills"].append("fast")
 
-x["Skills"].append("fast")
-
-with open("profile.json", "w") as file:
-    json.dump(x, file, indent=4)
-  
+    with open(path, "w") as file:
+        json.dump(x, file, indent=4)
+        return x
