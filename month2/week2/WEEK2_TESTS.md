@@ -1,7 +1,7 @@
 # Week 2 — PyTest Fixtures & Structure (Summary)
 
 **Goal:** Build a professional, modular test suite using fixtures, parametrization, and setup/teardown.
-
+ 
 **Environment**
 - Python: 3.13.5  
 - pytest: 8.4.2  
