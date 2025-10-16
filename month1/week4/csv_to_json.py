@@ -2,7 +2,7 @@ import csv
 import json
 
 try:
-    with open("data_reverse.csv", "r") as file:
+    with open("data_reverse.csv") as file:
         reader = csv.DictReader(file)
         rows = list(reader)
 

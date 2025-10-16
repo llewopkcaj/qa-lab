@@ -1,27 +1,26 @@
-import json
 import csv
+import json
+
 
 def json_to_csv(path):
     data = [
         {"Jack": 11, "Queen": 12, "King": 13, "Ace": 14},
         {"Blue": 8, "Orange": 10, "Green": 4, "Pink": 5},
-        {"Steph": 30, "Jordan": 23, "Shaq": 34, "Kobe": 8}
+        {"Steph": 30, "Jordan": 23, "Shaq": 34, "Kobe": 8},
     ]
 
     with open(path, "w") as file:
         json.dump(data, file, indent=4)
 
-    with open(path, "r") as file:
+    with open(path) as file:
         pre_csv = json.load(file)
 
     fieldnames = sorted({k for row in pre_csv for k in row.keys()})
     csv_path = path.with_suffix(".csv")
 
-
-    with open (csv_path, "w", newline="") as new_csv:
+    with open(csv_path, "w", newline="") as new_csv:
         final = csv.DictWriter(new_csv, fieldnames=fieldnames, restval="")
         final.writeheader()
         final.writerows(pre_csv)
- 
-    return f"Wrote {len(pre_csv)} rows to {csv_path}"
 
+    return f"Wrote {len(pre_csv)} rows to {csv_path}"

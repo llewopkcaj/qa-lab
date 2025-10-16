@@ -1,4 +1,8 @@
-import pytest, tempfile, os
+import os
+import tempfile
+
+import pytest
+
 
 @pytest.fixture
 def file_setup_teardown():
@@ -7,6 +11,7 @@ def file_setup_teardown():
         f.write("QA Automation Rocks")
     yield path
     os.remove(path)
+
 
 def test_file_contains_phrase(file_setup_teardown):
     with open(file_setup_teardown) as f:

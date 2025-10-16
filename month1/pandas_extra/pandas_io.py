@@ -6,6 +6,3 @@ print(dfile.head())
 
 dfile.to_csv("contacts.copy.csv", index=False)
 dfile.to_json("contacts.json", orient="records", indent=4)
-
-
-

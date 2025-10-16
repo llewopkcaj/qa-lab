@@ -1,4 +1,8 @@
-import pytest, tempfile, os
+import os
+import tempfile
+
+import pytest
+
 
 @pytest.fixture
 def temp_file():
@@ -7,6 +11,7 @@ def temp_file():
     f.close()
     yield f.name
     os.remove(f.name)
+
 
 def test_tempfile_content(temp_file):
     with open(temp_file) as f:

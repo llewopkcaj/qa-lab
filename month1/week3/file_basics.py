@@ -9,4 +9,3 @@ def write_and_read(path):
         second = elo.read()
 
     return first, second
-

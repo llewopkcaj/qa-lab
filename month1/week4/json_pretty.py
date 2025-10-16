@@ -1,7 +1,7 @@
 import json
 import os
 
-with open("messy.json", "r") as f:
+with open("messy.json") as f:
     data = json.load(f)
 print(f"UNFORMATTED: \n{data}")
 
@@ -13,7 +13,7 @@ print(f"PRETTY VERSION: \n{json.dumps(data, indent=2, sort_keys=True)}")
 with open("mini.json", "w") as f:
     json.dump(data, f, separators=(",", ":"))
 
-print(f"MINIMAL VERSION: n\{json.dumps(data, separators=(",", ":"))}")
+print(rf"MINIMAL VERSION: n\{json.dumps(data, separators=(",", ":"))}")
 
 raw_size = os.path.getsize("messy.json")
 pretty_size = os.path.getsize("pretty.json")

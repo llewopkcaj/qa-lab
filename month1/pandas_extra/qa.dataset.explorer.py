@@ -1,7 +1,8 @@
-import pandas as pd
+import json
 import sys
 from pathlib import Path
-import json
+
+import pandas as pd
 
 if len(sys.argv) < 2:
     print("usage: python qa.dataset.explorer.py <filename>")
@@ -28,7 +29,7 @@ combined = {
     "columns": columns,
     "empty cells": null_count,
     "selected column": chosen_column,
-    "top values": result
+    "top values": result,
 }
 
 with open("colors.json", "w") as f:
