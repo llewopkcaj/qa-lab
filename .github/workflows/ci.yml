@@ -13,4 +13,5 @@ jobs:
       - run: pip install ruff black mypy
       - run: ruff check .
       - run: black --check .
-      - run: mypy 
+      - name: Run mypy
+        run: mypy month1 month2
