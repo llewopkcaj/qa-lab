@@ -1,7 +1,8 @@
 import csv
+from typing import Any
 
-with open("missing.csv", "w") as file:
-    rows = [
+with open("missing.csv", "w", newline="") as file:
+    rows: list[dict[str, str]] = [
         {"color": "elephant"},
         {"color": "sapphire", "shape": "oblong", "size": "medium"},
         {"shape": "sphere", "size": "large"},
@@ -9,20 +10,20 @@ with open("missing.csv", "w") as file:
         {"shape": "pyramid", "size": "monumental"},
         {"color": "mauve", "shape": "disk"},
     ]
-    fieldnames = ["color", "shape", "size"]
+    fieldnames: list[str] = ["color", "shape", "size"]
     writer = csv.DictWriter(file, fieldnames=fieldnames)
     writer.writeheader()
     writer.writerows(rows)
 
 
-def safe_get(row, key, default="n/a"):
+def safe_get(row: dict[str, Any], key: str, default: str = "n/a") -> str:
     val = row.get(key)
     if not val:
         return default
-    return val
+    return str(val)
 
 
-with open("missing.csv") as file:
+with open("missing.csv", newline="") as file:
     reader = csv.DictReader(file)
     if reader.fieldnames is not None:
         print(*reader.fieldnames)

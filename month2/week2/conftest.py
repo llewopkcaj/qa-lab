@@ -1,5 +1,6 @@
 import pytest
-from calculator import Calculator
+
+from month2.week2.calculator import Calculator
 
 
 @pytest.fixture

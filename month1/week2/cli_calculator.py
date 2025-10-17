@@ -1,32 +1,38 @@
 import math
 
 
-def calculate(x, a, b=None):
+def calculate(x: str, a: float, b: float | None = None) -> float:
     """Return the result of op `x` on `a` (and optional `b`); raises on invalid ops or math errors.
     Args: x(str), a(float), b(float|None). Returns: float."""
 
     if x == "add":
+        if b is None:
+            raise ValueError("operation 'add' requires two numbers")
         return a + b
     elif x == "subtract":
+        if b is None:
+            raise ValueError("operation 'subtract' requires two numbers")
         return a - b
     elif x == "multiply":
+        if b is None:
+            raise ValueError("operation 'multiply' requires two numbers")
         return a * b
     elif x == "power":
+        if b is None:
+            raise ValueError("operation 'power' requires two numbers")
         return a**b
     elif x == "divide":
-        # Require a second number and forbid division by zero
         if b is None:
             raise ValueError("operation 'divide' requires two numbers")
         if b == 0:
             raise ZeroDivisionError("cannot divide by zero")
         return a / b
     elif x == "sqrt":
-        # Forbid square root of negative numbers
         if a < 0:
             raise ValueError("cannot take square root of a negative number")
-        return math.sqrt(a)  # make sure: import math at the top
+        return math.sqrt(a)
     else:
-        raise ValueError("invalid operation")
+        raise ValueError(f"unknown operation: {x}")
 
 
 PERMITTED_OPS = (
@@ -39,7 +45,7 @@ PERMITTED_OPS = (
 )
 
 
-def run_it():
+def run_it() -> None:
     """Interactive CLI loop that prompts for an operation and numbers, prints the result; returns None."""
     while True:
         x = input(f"Enter operation({PERMITTED_OPS} or q to turn off):").strip().lower()

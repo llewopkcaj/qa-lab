@@ -1,4 +1,4 @@
-place = {
+place: dict[str, str | int | bool] = {
     "colour": "white",
     "shape": "round",
     "x colour": "beige",
@@ -8,5 +8,9 @@ place = {
 }
 
 place["degree"] = "5"
-total_vol = int(place["degree"]) * int(place["angles"])
+
+degree_str: str = str(place["degree"])
+angles_str: str = str(place["angles"])
+
+total_vol: int = int(degree_str) * int(angles_str)
 print(total_vol)
