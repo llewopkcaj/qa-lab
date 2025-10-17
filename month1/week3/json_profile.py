@@ -4,7 +4,6 @@ profile = {"Name": "Bobby", "Age": 82, "Skills": ["cool", "smart", "sneaky"]}
 
 
 def first_file(path):
-
     with open(path, "w") as file:
         json.dump(profile, file, indent=4)
 
