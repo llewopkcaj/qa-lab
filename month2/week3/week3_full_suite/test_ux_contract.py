@@ -1,8 +1,12 @@
 import builtins
 
+import pytest
+
 from month1.week2.cli_calculator import run_it
 
 
+@pytest.mark.smoke
+@pytest.mark.ux
 def test_contract(monkeypatch, capsys):
     it = iter(["add", "3.5", "2.5", "q"])
     monkeypatch.setattr(builtins, "input", lambda _=None: next(it, "q"))

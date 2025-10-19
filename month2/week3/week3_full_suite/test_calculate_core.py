@@ -3,6 +3,7 @@ import pytest
 from month1.week2.cli_calculator import calculate
 
 
+@pytest.mark.smoke
 @pytest.mark.parametrize(
     "x, a, b, expected",
     [
@@ -18,6 +19,7 @@ def test_calculator(x, a, b, expected):
     assert calculate(x, a, b) == expected
 
 
+@pytest.mark.regression
 @pytest.mark.parametrize(
     "x, a, b, error",
     [
