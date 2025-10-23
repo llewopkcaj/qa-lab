@@ -2,5 +2,5 @@ import pytest
 
 
 @pytest.mark.xfail(reason="Intentional demo from day4")
-def test_fail():
+def test_fail() -> None:
     assert 2 + 2 == 8

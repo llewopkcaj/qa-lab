@@ -3,7 +3,7 @@ import pathlib
 import subprocess
 
 
-def main():
+def main() -> None:
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     report_dir = pathlib.Path("/Users/jackpowell/Documents/qa-lab/month2/week4/reports")
     report_dir.mkdir(exist_ok=True)
