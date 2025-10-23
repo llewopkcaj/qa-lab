@@ -1,5 +1,7 @@
 import platform
 import sys
+from collections.abc import Generator
+from typing import Any
 
 import pytest
 
@@ -9,7 +11,7 @@ except Exception:
     extras = None
 
 
-def pytest_configure(config):
+def pytest_configure(config: Any) -> None:
     if not hasattr(config, "_metadata") or config._metadata is None:
         config._metadata = {}
     config._metadata.update(
@@ -29,8 +31,10 @@ def pytest_configure(config):
 
 
 @pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_makereport(item, call):
+def pytest_runtest_makereport(item: Any, call: Any) -> Generator[None]:
     outcome = yield
+    if outcome is None:
+        return
     report = outcome.get_result()
     if report.when != "call":
         return
