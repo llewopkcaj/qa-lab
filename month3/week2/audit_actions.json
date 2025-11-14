@@ -1,0 +1,21 @@
+{
+    "clicks": 2,
+    "moves": 1,
+    "navigations": 2,
+    "events": [
+        {
+            "type": "nav",
+            "url": "https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_ondblclick"
+        },
+        {
+            "type": "click"
+        },
+        {
+            "type": "nav",
+            "url": "https://demoqa.com/tool-tips"
+        },
+        {
+            "type": "moves"
+        }
+    ]
+}
