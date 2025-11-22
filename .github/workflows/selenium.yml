@@ -43,7 +43,9 @@ jobs:
 
       # 6. Upload the HTML report as an artifact
       - name: Upload Selenium Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: selenium-report
           path: selenium_report.html
+
