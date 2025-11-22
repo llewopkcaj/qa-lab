@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.mark.xfail(reason="Intentional failure demo for Selenium CI", strict=False)
 def test_force_fail(driver):
     driver.get("https://example.com")
 

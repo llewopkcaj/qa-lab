@@ -1,5 +1,6 @@
 import os
 
+import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,6 +9,10 @@ SCREENSHOT_DIR = "month3/week3/screenshots/day3"
 os.makedirs(SCREENSHOT_DIR, exist_ok=True)
 
 
+CI = os.getenv("CI") == "true"
+
+
+@pytest.mark.skipif(CI, reason="Skip external W3Schools flow in CI (network flaky).")
 def test_screenshot_flow(driver):
     driver.get("https://www.w3schools.com/html/html_forms.asp")
 
