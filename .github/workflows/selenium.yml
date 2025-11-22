@@ -36,9 +36,10 @@ jobs:
       # 5. Run Selenium tests in headless mode
       - name: Run Selenium tests
         run: |
-          pytest -v \
-            --html=selenium_report.html \
-            --self-contained-html
+          pytest month3/week3 -v \
+          --html=selenium_report.html \
+          --self-contained-html
+
 
       # 6. Upload the HTML report as an artifact
       - name: Upload Selenium Report
