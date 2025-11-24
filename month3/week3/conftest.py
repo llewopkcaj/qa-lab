@@ -1,11 +1,16 @@
-import os
 from datetime import datetime
 
 import pytest
+from pytest_html import extras
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+
+try:
+    from pytest_metadata.plugin import metadata_key
+except Exception:  # pytest-metadata not installed or legacy version
+    metadata_key = None
 
 
 @pytest.fixture
@@ -21,28 +26,55 @@ def driver(request):
 
     yield drv
 
-    # --- screenshot on failure ---
-    rep = getattr(request.node, "rep_call", None)
-    if rep and rep.failed:
-        os.makedirs("month3/week3/screenshots", exist_ok=True)
-        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        path = f"month3/week3/screenshots/FAIL_{ts}.png"
-        drv.save_screenshot(path)
-
-        # Will show up in pytest-html as an extra text section
-        if hasattr(request.node, "add_report_section"):
-            request.node.add_report_section("call", "screenshot", f"Saved screenshot: {path}")
-
     drv.quit()
 
 
+# --- Add metadata to pytest-html reports ---
+def pytest_configure(config):
+    if metadata_key is not None:
+        metadata = config.stash.get(metadata_key, {})
+        config.stash[metadata_key] = metadata
+    else:
+        metadata = getattr(config, "_metadata", None)
+        if metadata is None:
+            metadata = {}
+            config._metadata = metadata
+
+    metadata.update(
+        {
+            "Author": "Jack Powell",
+            "Module": "Month 3 — Week 3",
+            "Focus": "Screenshots + CI/CD",
+            "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        }
+    )
+
+
+# --- Add custom text + image attachments ---
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    """
-    Standard pytest pattern:
-    - Get the TestReport via hookwrapper
-    - Attach it to item as rep_setup/rep_call/rep_teardown
-    """
     outcome = yield
     rep = outcome.get_result()
-    setattr(item, "rep_" + rep.when, rep)
+
+    # Only modify reports for actual test phases
+    if rep.when != "call":
+        return
+
+    # pytest-html plugin hook
+    extra = getattr(rep, "extra", [])
+
+    should_capture = rep.failed or rep.outcome == "xfailed"
+    if should_capture:
+        extra.append(
+            extras.text(
+                "Test failed — review screenshot below.",
+                name="Failure Message",
+            )
+        )
+        # Screenshot if driver present
+        driver = item.funcargs.get("driver", None)
+        if driver:
+            encoded = driver.get_screenshot_as_base64()
+            extra.append(extras.image(encoded, name="Failure Screenshot"))
+
+    rep.extra = extra
