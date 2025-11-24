@@ -35,7 +35,7 @@ jobs:
 
       # 5. Run Selenium tests in headless mode
       - name: Run Selenium Tests
-        run: pytest month3/week3 -v --html=report.html --self-contained-html
+        run: pytest month3/week3 -v --html=selenium_report.html --self-contained-html
 
 
 
@@ -46,4 +46,3 @@ jobs:
         with:
           name: selenium-report
           path: selenium_report.html
-
