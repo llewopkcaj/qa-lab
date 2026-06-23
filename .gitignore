@@ -45,4 +45,4 @@ dist/
 # Temporary files
 tmp/
 temp/
-*.tmp
+*.tmp.chrome-profile/
