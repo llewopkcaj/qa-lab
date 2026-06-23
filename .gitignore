@@ -14,6 +14,9 @@ ENV/
 .env.*
 !.env.example
 
+# Browser profiles / Selenium local state
+.chrome-profile/
+
 # VS Code / editor local settings
 .vscode/settings.json
 .idea/
@@ -45,4 +48,4 @@ dist/
 # Temporary files
 tmp/
 temp/
-*.tmp.chrome-profile/
+*.tmp
