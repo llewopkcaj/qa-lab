@@ -1,77 +1,186 @@
-# qa-month1
+# AI-Assisted QA Automation Lab
 
-This repository tracks my Python learning and automation projects as part of a 6–7 month **QA Automation roadmap**.  
-It now contains completed work from **Weeks 1–5** (Python + Pandas) and **Month 2, Week 1** (PyTest foundations).
+[![CI](https://github.com/llewopkcaj/qa-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/llewopkcaj/qa-lab/actions/workflows/ci.yml)
 
----
+This repository documents my progression from Python automation fundamentals into QA automation with PyTest, Selenium, reporting, and GitHub Actions CI.
 
-## Week 1 — Python Foundations (Variables, Lists, Dicts)
-- **profile_card.py** — variables + f-strings.  
-- **favorites.py** — list indexing, slicing, and updates.  
-- **contact_book.py** — nested dictionaries and safe access.  
-- **daily_dashboard.py** — combined project with variables, lists, dicts.  
-- **poetry_generator.py** — ASCII poetry with random choice.  
+The focus is not just writing scripts. The goal is to build practical automation workflows, test them, debug failures, document results, and use AI responsibly as an engineering assistant.
 
----
+## What This Repo Demonstrates
 
-## Week 2 — Loops, Functions, Exceptions
-- **grade_classifier.py** — classify grades with if/elif/else.  
-- **truth_table.py** — boolean logic outputs.  
-- **loop_katas.py** — loop practice problems.  
-- **math_utils.py** — add, mean, describe_person.  
-- **scope_demo.py** — local vs global scope.  
-- **safe_divide.py** — division with validation & errors.  
-- **file_reader.py** — safe file handling.  
-- **cli_calculator.py** — interactive calculator with exceptions + docstrings.  
+* Python automation for files, CSV, JSON, and data transformation
+* PyTest test suites for core logic, CLI behavior, fixtures, parametrization, and error handling
+* Selenium browser automation using locators, waits, clicks, typing, screenshots, and headless mode
+* GitHub Actions CI for linting, formatting, type checks, and automated test workflows
+* QA documentation through reports, notes, coverage matrices, and debugging reflections
+* AI-assisted engineering workflow: describe, generate, review, run, debug, and document
 
----
+## Why I Built This
 
-## Week 3 — File Handling (Text, CSV, JSON)
-- **file_basics.py** — open, write, append, and read text files.  
-- **csv_contacts.py** — create and read CSV with `csv.DictWriter` and `DictReader`.  
-- **json_profile.py** — save, reload, and update JSON profiles.  
-- **file_renamer.py** — batch rename files in a folder.  
-- **json_to_csv.py** — convert JSON → CSV with graceful key handling.  
-- **week3_exercises/** — practice sets and optional challenges (Mockaroo/Faker).  
+I am building toward QA automation and AI implementation roles where the important skill is not just knowing syntax, but being able to turn messy workflows into reliable, testable systems.
 
----
+This lab is designed to show that I can:
 
-## Week 4 — CSV + JSON Automation
-- **csv_missing.py** — handle inconsistent CSVs with `.get()`.  
-- **json_pretty.py** — pretty-print vs minify JSON, compare file sizes.  
-- **json_to_csv.py** — structured JSON → tabular CSV.  
-- **csv_to_json.py** — CSV → JSON conversion with formatting.  
-- **analyze_dataset.py** — analyze a large fake dataset (emails, ages).  
-- **robust_loader.py** — load CSV/JSON with error handling.  
-- **WEEK4.md** — documentation with notes and code snippets.  
+* break a technical problem into small testable pieces
+* use AI tools without blindly trusting them
+* review and debug generated code
+* write repeatable tests
+* document evidence of what passed, failed, and changed
+* communicate technical work clearly to non-technical readers
 
----
+## Project Structure
 
-## Week 5 — Pandas & Data Analysis
-- **pandas_intro.py** — Series & DataFrame basics (`.head()`, `.shape`, `.dtypes`).  
-- **pandas_io.py** — read CSV/JSON, write to copy files.  
-- **pandas_filter.py** — filter rows (Age > 30), select specific columns, use `.iloc` / `.loc`.  
-- **pandas_clean.py** — handle missing values (`.isnull().sum()`, `.fillna()`, `.dropna()`).  
-- **pandas_analyze.py** — analyze dataset: count Gmail users, group by Country, average Age → export summary.csv.  
-- **qa.dataset.explorer.py** — mini QA dataset explorer (shape, null counts, top values) → export report.json.  
-- **contacts.json / contacts.copy.csv / MOCK_DATA-3.csv** — supporting datasets.  
-- **week5.md** — notes, quiz reflection, and 3 code snippets.  
+```text
+qa-lab/
+├── month1/                 # Python automation foundations
+├── month2/                 # PyTest, fixtures, CLI testing, reporting
+├── month3/                 # Selenium, browser automation, screenshots, CI/CD
+├── .github/workflows/      # GitHub Actions workflows
+├── conftest.py             # Shared PyTest configuration
+├── pytest.ini              # PyTest markers and configuration
+├── pyproject.toml          # Formatting, linting, and typing configuration
+├── .pre-commit-config.yaml # Ruff/Black pre-commit checks
+└── README.md
+```
 
-✅ **Outcome:** Pandas enables faster, cleaner handling of CSV/JSON compared to raw file ops, shifting the workflow toward *data analysis as QA*.  
+## Month 1: Python Automation Foundations
 
----
+Month 1 focuses on writing maintainable Python scripts for common automation tasks.
 
-## Month 2 — Week 1: PyTest Foundations
-- **test_smoke_basics.py** — math, string, and list assertions.  
-- **test_math_utils.py** — tests for add, mean, and describe_person.  
-- **test_grade_classifier.py** — full grade range + out-of-range errors.  
-- **test_truth_table.py** — boolean logic tests.  
-- **test_loop_katas.py** — loops, enumerate, multiples of 7.  
-- **test_file_basics.py** — temporary file I/O testing.  
-- **test_csv_json_minis.py** — JSON and CSV mini-scripts.  
-- **test_json_to_csv.py** — JSON→CSV converter with error handling.  
-- **test_safe_divide_and_file_reader.py** — exception handling tests.  
-- **pytest.ini** — global PyTest config (`-q`, `--maxfail=1`, hide warnings).  
-- **README_tests.md** — documentation for running tests.  
+Topics covered:
 
-✅ **Outcome:** By the end of this week, a complete PyTest suite (20+ passing tests) covers all core Python scripts from Weeks 1–3, building the foundation for fixtures, parametrization, and setup/teardown in Week 2.
+* variables, strings, lists, dictionaries, and functions
+* control flow and exception handling
+* file I/O
+* CSV and JSON handling
+* data conversion and cleanup
+
+Example project types:
+
+* file renaming tools
+* JSON to CSV conversion
+* CSV to JSON conversion
+* dataset analysis scripts
+* robust file loaders with friendly error handling
+
+Portfolio relevance:
+
+> Built Python automation scripts for file and data management, including CSV/JSON transformation and error-handled loaders.
+
+## Month 2: PyTest and QA Foundations
+
+Month 2 shifts from scripting to testing. The work focuses on using PyTest to verify behavior, catch errors, and document expected outcomes.
+
+Topics covered:
+
+* assertions and test discovery
+* fixtures and fixture scope
+* parametrized tests
+* setup and teardown
+* testing CLI applications
+* mocking user input
+* capturing stdout/stderr
+* testing error paths
+* generating HTML reports
+
+Example project types:
+
+* unit tests for Python utility functions
+* CLI calculator test suite
+* input validation tests
+* UX/output formatting tests
+* coverage matrices
+* PyTest HTML reports
+
+Portfolio relevance:
+
+> Developed automated test suites with PyTest, including fixtures, parametrization, CLI behavior testing, and report generation.
+
+## Month 3: Selenium, Browser Automation, and CI/CD
+
+Month 3 focuses on web automation and evidence-based UI testing.
+
+Topics covered:
+
+* Selenium WebDriver setup
+* CSS and XPath locators
+* browser actions: click, type, submit, navigate
+* explicit waits
+* screenshots
+* headless browser testing
+* GitHub Actions CI
+* pytest-html reporting
+* login/logout flow automation
+
+Example project types:
+
+* locator playground scripts
+* element audit tools
+* form automation
+* screenshot capture tests
+* Selenium CI pipeline
+* login/logout flow tests
+
+Portfolio relevance:
+
+> Automated functional web tests with Selenium, generated screenshots and reports, and integrated browser tests into GitHub Actions CI.
+
+## Engineering Standards
+
+This repo uses a basic engineering hygiene stack:
+
+* **Black** for formatting
+* **Ruff** for linting
+* **mypy** for type checking
+* **PyTest** for automated testing
+* **GitHub Actions** for CI
+* **pre-commit** for local quality checks
+
+The goal is to make the repo easier to review, run, and maintain.
+
+## AI-Assisted Workflow
+
+This repo was built using an AI-accelerated learning process.
+
+The workflow:
+
+1. **Decide** — identify the concept or test behavior to practice.
+2. **Describe** — write a plain-English description of the intended script or test.
+3. **Generate** — use AI to help produce a first draft.
+4. **Review** — read the code, check assumptions, and identify fragile areas.
+5. **Run** — execute locally and inspect failures.
+6. **Debug** — refine the code based on actual errors.
+7. **Reflect** — document what worked, what broke, and how a stronger engineer would improve it.
+
+I treat AI as an assistant, not as a substitute for verification. The important work is reviewing, testing, debugging, and explaining the system.
+
+## Strongest Areas to Review
+
+Recommended areas for reviewers:
+
+* `month2/` — PyTest suites, fixtures, CLI testing, and reporting
+* `month3/` — Selenium automation, screenshots, waits, and CI/CD work
+* `.github/workflows/` — automated checks and CI configuration
+* `pytest.ini`, `pyproject.toml`, and `conftest.py` — project-level test and tooling setup
+
+## Current Status
+
+This is an active learning and portfolio repo. It is not presented as a production application. It is intended to show progression, practical automation ability, testing discipline, and the ability to use AI tools responsibly while maintaining ownership of the work.
+
+## Next Steps
+
+Planned improvements:
+
+* polish Selenium login/logout flow documentation
+* add clearer screenshots and report examples
+* improve README links to strongest subprojects
+* expand API testing with Python `requests`
+* add SQL/database validation tests
+* create a short project walkthrough video
+
+## Summary
+
+This repository shows my path from Python fundamentals into QA automation and AI-assisted engineering practice.
+
+It demonstrates that I can build small tools, test them, debug failures, document evidence, and improve systems over time.
+
