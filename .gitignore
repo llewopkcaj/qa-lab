@@ -1,13 +1,48 @@
+# Python bytecode/cache
 __pycache__/
-*.pyc
-.DS_Store
+*.py[cod]
+*$py.class
+
+# Virtual environments
 .venv/
+venv/
+env/
+ENV/
+
+# Environment variables / local config
+.env
+.env.*
+!.env.example
+
+# VS Code / editor local settings
+.vscode/settings.json
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Pytest / coverage / test cache
 .pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+
+# Jupyter
 .ipynb_checkpoints/
-# Test reports
-*.html
-reports/
 
-# pytest-html reports
-month2/week4/reports/*.html
-
+# Temporary files
+tmp/
+temp/
+*.tmp

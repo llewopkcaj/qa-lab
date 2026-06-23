@@ -9,7 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 try:
     from pytest_metadata.plugin import metadata_key
-except Exception:  # pytest-metadata not installed or legacy version
+except Exception:
     metadata_key = None
 
 
@@ -29,7 +29,6 @@ def driver(request):
     drv.quit()
 
 
-# --- Add metadata to pytest-html reports ---
 def pytest_configure(config):
     if metadata_key is not None:
         metadata = config.stash.get(metadata_key, {})
@@ -50,17 +49,14 @@ def pytest_configure(config):
     )
 
 
-# --- Add custom text + image attachments ---
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     outcome = yield
     rep = outcome.get_result()
 
-    # Only modify reports for actual test phases
     if rep.when != "call":
         return
 
-    # pytest-html plugin hook
     extra = getattr(rep, "extra", [])
 
     should_capture = rep.failed or rep.outcome == "xfailed"
@@ -71,7 +67,6 @@ def pytest_runtest_makereport(item, call):
                 name="Failure Message",
             )
         )
-        # Screenshot if driver present
         driver = item.funcargs.get("driver", None)
         if driver:
             encoded = driver.get_screenshot_as_base64()
